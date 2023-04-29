@@ -1,0 +1,22 @@
+{
+  "name": "polanf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "not-exists",
+  "scripts": {
+    "bulid": "postcss src/input.css -o dist/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MDavydova/poland.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.1"
+  }
+}
