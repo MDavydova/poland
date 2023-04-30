@@ -75,9 +75,9 @@ const cardSlice = createSlice({
     [getCardsByUser.pending]: (state, action) => {
       state.loading = true;
     },
-    [getCardsByUser.fullfiled]: (state, action) => {
+    [getCardsByUser.fulfilled]: (state, action) => {
       state.loading = false;
-      state.cards = action.payload;
+      state.userCards = action.payload;
     },
     [getCardsByUser.rejected]: (state, action) => {
       state.loading = false;
@@ -86,7 +86,7 @@ const cardSlice = createSlice({
     [deleteCard.pending]: (state, action) => {
       state.loading = true;
     },
-    [deleteCard.fullfiled]: (state, action) => {
+    [deleteCard.fulfilled]: (state, action) => {
       state.loading = false;
       const {
         arg: { id },

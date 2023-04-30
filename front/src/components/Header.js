@@ -46,6 +46,15 @@ const Header = () => {
                 Logged in as: {user?.result?.name}
               </h5>
             )}
+            {user?.result?._id && (
+              <>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href="/dashboard">
+                    <p className="header-text">Dashboard</p>
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
+              </>
+            )}
 
             {user?.result?._id && (
               <>

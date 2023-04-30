@@ -20,20 +20,15 @@ const Dashboard = () => {
   const { user } = useSelector((state) => ({ ...state.auth }));
   const { userCards, loading } = useSelector((state) => ({ ...state.card }));
   const userId = user?.result?._id;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (userId) {
       dispatch(getCardsByUser(userId));
     }
+    console.log(userCards);
   }, [userId]);
-
-  const excerpt = (str) => {
-    if (str.length > 40) {
-      str = str.substring(0, 40) + " ...";
-    }
-    return str;
-  };
 
   if (loading) {
     return <Spinner />;
@@ -54,7 +49,10 @@ const Dashboard = () => {
         alignContent: "center",
       }}
     >
-      <h4 className="text-center">Dashboard: {user?.result?.name}</h4>
+      <h4 className="text-center">
+        {" "}
+        {user?.result?.name} is learning these words
+      </h4>
       <hr style={{ maxWidth: "570px" }} />
       {userCards &&
         userCards.map((item) => (
@@ -68,7 +66,7 @@ const Dashboard = () => {
                       {item.translation}
                     </MDBCardTitle>
                     <MDBCardText className="text-start">
-                      <small className="text-muted">{excerpt(item.note)}</small>
+                      <small className="text-muted">{item.note}</small>
                     </MDBCardText>
                     <div
                       style={{
