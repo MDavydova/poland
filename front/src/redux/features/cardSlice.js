@@ -77,6 +77,7 @@ const cardSlice = createSlice({
     },
     [getCardsByUser.fulfilled]: (state, action) => {
       state.loading = false;
+
       state.userCards = action.payload;
     },
     [getCardsByUser.rejected]: (state, action) => {

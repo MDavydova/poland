@@ -21,6 +21,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "5.0.0",
     "react-toastify": "^8.1.0",
+    "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

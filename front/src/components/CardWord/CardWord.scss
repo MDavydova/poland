@@ -1,0 +1,45 @@
+.word-card {
+  background-color: red;
+  display: inline-block;
+  width: 200px;
+  height: 260px;
+  margin: 40px;
+  perspective: 600px;
+  color: black;
+
+  &__wrapper {
+    height: 80px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+
+    &.is-flipper {
+      transform: translateX(-100%) rotateY(-180deg);
+    }
+
+    &-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      line-height: 260px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 40px;
+      backface-visibility: hidden;
+    }
+
+    &-front {
+      background-color: red;
+    }
+
+    &-back {
+      background: slateblue;
+      transform: rotateY(180deg);
+    }
+  }
+}

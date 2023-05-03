@@ -45,6 +45,7 @@ export const getCardsByUser = async (req, res) => {
 
   try {
     const userCards = await CardModel.find({ creator: userId });
+
     res.status(200).json(userCards);
   } catch (err) {
     res.status(409).json({ message: err.message });
