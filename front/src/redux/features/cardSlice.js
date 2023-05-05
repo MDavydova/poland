@@ -1,6 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../api";
 
+export const generateNounWord = createAsyncThunk(
+  "card/generateNounWord",
+  async (length, { rejectWithValue }) => {
+    try {
+      const response = await api.generateNounWord(length);
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  }
+);
+
 export const createCard = createAsyncThunk(
   "card/createCard",
   async (cardData, { rejectWithValue }) => {
@@ -18,6 +30,7 @@ export const getCardsByUser = createAsyncThunk(
   async (userId, { rejectWithValue }) => {
     try {
       const response = await api.getCardsByUser(userId);
+
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -30,6 +43,7 @@ export const deleteCard = createAsyncThunk(
   async ({ id, toast }, { rejectWithValue }) => {
     try {
       const response = await api.deleteCard(id);
+
       toast.success("Card Deleted Successfully");
       return response.data;
     } catch (err) {

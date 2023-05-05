@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCard } from "../../redux/features/cardSlice";
+import { toast } from "react-toastify";
 import "../CardWord/CardWord.scss";
 
 const CardWord = ({ item }) => {
   const dispatch = useDispatch();
+
+  const id = item._id;
 
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -13,7 +16,7 @@ const CardWord = ({ item }) => {
   };
 
   const handleDeleteClick = () => {
-    dispatch(deleteCard(item._id));
+    dispatch(deleteCard({ id, toast }));
   };
 
   return (

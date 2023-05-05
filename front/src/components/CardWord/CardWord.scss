@@ -6,6 +6,16 @@
   margin: 40px;
   perspective: 600px;
   color: black;
+  border-radius: 32px;
+
+  button {
+    position: relative;
+    z-index: 999;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
 
   &__wrapper {
     height: 80px;
@@ -31,6 +41,7 @@
       font-weight: bold;
       font-size: 40px;
       backface-visibility: hidden;
+      border-radius: 32px;
     }
 
     &-front {

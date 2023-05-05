@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL: process.env.REACT_APP_API_URL });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
@@ -19,3 +19,18 @@ export const createCard = (cardData) => API.post("/cards", cardData);
 export const deleteCard = (id) => API.delete(`/cards/${id}`);
 export const updateCard = (id) => API.patch(`/cards/${id}`);
 export const getCardsByUser = (userId) => API.get(`/cards/userCards/${userId}`);
+
+const SECONDARY_API = axios.create({
+  baseURL: process.env.REACT_APP_SECONDARY_API_URL,
+});
+
+SECONDARY_API.interceptors.request.use((config) => {
+  config.headers.get["X-RapidAPI-Key"] =
+    proccess.env.REACT_APP_SECONDARY_API_KEY;
+  config.headers.get["X-RapidAPI-Host"] =
+    proccess.env.REACT_APP_SECONDARY_API_HOST;
+  return config;
+});
+
+export const generateNounWord = (length) =>
+  SECONDARY_API.get(`/noun/${length}`);

@@ -23,12 +23,6 @@ const Dashboard = () => {
     return <Spinner />;
   }
 
-  const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this word ?")) {
-      dispatch(deleteCard({ id, toast }));
-    }
-  };
-
   return (
     <div
       style={{

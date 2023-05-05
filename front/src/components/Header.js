@@ -65,6 +65,15 @@ const Header = () => {
                 </MDBNavbarItem>
               </>
             )}
+            {user?.result?._id && (
+              <>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href="/generateWord">
+                    <p className="header-text">Generate Word</p>
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
+              </>
+            )}
             {user?.result?._id ? (
               <MDBNavbarItem>
                 <MDBNavbarLink href="/login">

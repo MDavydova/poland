@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
 import AddWord from "./pages/AddWord";
+import GenerateWord from "./pages/GenerateWord";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
 import PrivateRoute from "./components/PrivateRoute";
@@ -39,6 +40,14 @@ function App() {
             element={
               <PrivateRoute>
                 <AddWord />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/generateWord"
+            element={
+              <PrivateRoute>
+                <GenerateWord />
               </PrivateRoute>
             }
           />

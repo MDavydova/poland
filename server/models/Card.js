@@ -22,6 +22,7 @@ const CardSchema = mongoose.Schema(
     creator: {
       type: ObjectId,
       ref: "UserModel",
+      required: true,
     },
 
     note: {
