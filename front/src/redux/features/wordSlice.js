@@ -6,6 +6,7 @@ export const generateNounWord = createAsyncThunk(
   async (length, { rejectWithValue }) => {
     try {
       const response = await api.generateNounWord(length);
+
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -13,26 +14,25 @@ export const generateNounWord = createAsyncThunk(
   }
 );
 
-const WordSlice = createSlice({
+const wordSlice = createSlice({
   name: "word",
   initialState: {
     word: {},
     error: "",
   }, //allows you to respond to an action in your slice reducer but does not create an action creator function.
   extraReducers: {
-    [getCardsByUser.pending]: (state, action) => {
+    [generateNounWord.pending]: (state, action) => {
       state.loading = true;
     },
-    [getCardsByUser.fulfilled]: (state, action) => {
+    [generateNounWord.fulfilled]: (state, action) => {
       state.loading = false;
-
-      state.userCards = action.payload;
+      state.word = action.payload;
     },
-    [getCardsByUser.rejected]: (state, action) => {
+    [generateNounWord.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },
   },
 });
 
-export default WordSlice.reducer;
+export default wordSlice.reducer;

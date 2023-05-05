@@ -26,11 +26,11 @@ const SECONDARY_API = axios.create({
 
 SECONDARY_API.interceptors.request.use((config) => {
   config.headers.get["X-RapidAPI-Key"] =
-    proccess.env.REACT_APP_SECONDARY_API_KEY;
+    process.env.REACT_APP_SECONDARY_API_KEY;
   config.headers.get["X-RapidAPI-Host"] =
-    proccess.env.REACT_APP_SECONDARY_API_HOST;
+    process.env.REACT_APP_SECONDARY_API_HOST;
   return config;
 });
 
 export const generateNounWord = (length) =>
-  SECONDARY_API.get(`/noun/${length}`);
+  SECONDARY_API.get(`/noun/random/${length}`);
